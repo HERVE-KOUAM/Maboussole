@@ -1,8 +1,9 @@
-﻿namespace Maboussole
+﻿using System.Runtime.CompilerServices;
+
+namespace Maboussole
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
 
         public MainPage()
         {
@@ -11,15 +12,16 @@
 
         private void OnCounterClicked(object sender, EventArgs e)
         {
-            count++;
+            DisplayAlert("La boussole", $" La nouvelle direction est {rotationLabel.Text} ", "ok");
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
         }
+            private void Slider_ValueChanged(object sender, ValueChangedEventArgs e)
+            {
+            double rotation = ((Slider)sender).value;
+            rotationLabel.Text = rotation + "°";
+            boussoleImg.RotateTo(rotation);
+                }
+        
     }
 
 }
