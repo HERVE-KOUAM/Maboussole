@@ -15,12 +15,14 @@ namespace Maboussole
             DisplayAlert("La boussole", $" La nouvelle direction est {rotationLabel.Text} ", "ok");
 
         }
-            private void Slider_ValueChanged(object sender, ValueChangedEventArgs e)
-            {
-            double rotation = ((Slider)sender).value;
+        private void Slider_ValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            double rotation = ((Slider)sender).Value;
             rotationLabel.Text = rotation + "°";
             boussoleImg.RotateTo(rotation);
-                }
+                
+        
+        }
         
     }
 
